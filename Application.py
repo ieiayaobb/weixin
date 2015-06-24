@@ -4,11 +4,7 @@ from flask import Flask
 from flask import request
 app = Flask(__name__)
 
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
-
-@app.route('/validate', methods=['GET'])
+@app.route('/', methods=['GET'])
 def validate():
     signature = request.args.get('signature')
     echostr = request.args.get('echostr')
@@ -21,6 +17,11 @@ def validate():
     print(nonce)
 
     return echostr
+
+@app.route('/', methods=['POST'])
+def handler():
+    print(request.get_data())
+
 
 
 if __name__ == '__main__':
