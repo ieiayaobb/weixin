@@ -7,7 +7,7 @@ app = Flask(__name__)
 def hello_world():
     return 'Hello World!'
 
-@app.route('/signature', methods=['GET'])
+@app.route('/signature<signature>', methods=['GET'])
 def signature(signature, echostr, timestamp, nonce):
     print(signature)
     print(echostr)
